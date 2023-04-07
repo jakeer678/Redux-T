@@ -1,12 +1,21 @@
-import React from 'react'
-import Counter from './Counter'
+import React, { Fragment } from "react";
+import Counter from "./Counter";
+import Auth from "./components/Auth";
+import Navabar from "./components/Navabar";
+import User from "./components/User";
+import { useSelector } from "react-redux";
 
 const App = () => {
-  return (
-    <div>
-     <Counter />
-    </div>
-  )
-}
+  const isAuth = useSelector((state) => state.auth.isAutenticated);
 
-export default App
+  return (
+    <Fragment>
+      <Navabar />
+      {!isAuth && <Auth />}
+      {isAuth && <User />}
+      <Counter />
+    </Fragment>
+  );
+};
+
+export default App;
