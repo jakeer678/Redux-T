@@ -1,6 +1,6 @@
 import { createSlice, configureStore } from "@reduxjs/toolkit";
 
-const initialState = { counter: 0, showCounter: false };
+const initialState = { counter: 0, showCounter: true };
 
 const counterSlice = createSlice({
   name: "counter",
@@ -16,7 +16,7 @@ const counterSlice = createSlice({
       state.counter = state.counter + action.payload;
     },
     toggle(state) {
-      state.showCounter = true;
+      state.showCounter = !state.showCounter;
     },
   },
 });
